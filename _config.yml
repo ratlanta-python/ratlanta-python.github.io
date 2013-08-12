@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://ratlanta-python.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://python.supedupe.net
+title: Atlanta Python Geeks of Reddit
+subtitle: Dedicated to the pursuit of Python since...a couple of weeks ago
+author: Jim Cushing
 simple_search: http://google.com/search
 description:
 
