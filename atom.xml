@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Atlanta Python Geeks of Reddit]]></title>
-  <link href="http://ratlanta-python.github.io/atom.xml" rel="self"/>
-  <link href="http://ratlanta-python.github.io/"/>
-  <updated>2013-08-12T12:02:27-04:00</updated>
-  <id>http://ratlanta-python.github.io/</id>
+  <link href="http://python.supedupe.net/atom.xml" rel="self"/>
+  <link href="http://python.supedupe.net/"/>
+  <updated>2013-08-12T12:05:55-04:00</updated>
+  <id>http://python.supedupe.net/</id>
   <author>
     <name><![CDATA[Jim Cushing]]></name>
     
