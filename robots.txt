@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://ratlanta-python.github.io/sitemap.xml 
