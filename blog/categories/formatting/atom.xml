@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: formatting | Atlanta Python Geeks of Reddit]]></title>
+  <link href="http://python.supedupe.net/blog/categories/formatting/atom.xml" rel="self"/>
+  <link href="http://python.supedupe.net/"/>
+  <updated>2013-08-24T20:26:54-04:00</updated>
+  <id>http://python.supedupe.net/</id>
+  <author>
+    <name><![CDATA[Jim Cushing]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Week Three]]></title>
+    <link href="http://python.supedupe.net/blog/2013/08/19/week-three/"/>
+    <updated>2013-08-19T19:00:00-04:00</updated>
+    <id>http://python.supedupe.net/blog/2013/08/19/week-three</id>
+    <content type="html"><![CDATA[<p>In this week&rsquo;s class, we covered:</p>
+
+<ul>
+<li>Lists, re-visited</li>
+<li>Dictionaries</li>
+<li>String formatting</li>
+</ul>
+
+
+<h2>Lists</h2>
+
+<p>To review, lists in Python are ordered collections of objects (such as strings or numbers). Declaring a list is easy:</p>
+
+<p><code>python
+geeks = ['Jim', 'Chad', 'Cody', 'Nic', 'Rader']
+</code></p>
+
+<p>To add an element to the end of a list:</p>
+
+<p><code>python
+geeks.append('Josh')
+print geeks
+</code></p>
+
+<pre><code>['Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>To insert an element at the beginning of a list:</p>
+
+<p><code>python
+geeks.insert(0, 'Tony')
+print geeks
+</code></p>
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Copy a list:</p>
+
+<p><code>python
+all_geeks = list(geeks)
+print all_geeks
+</code></p>
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>To remove an element from a list:</p>
+
+<p><code>python
+geeks.remove('Jim')
+print geeks
+</code></p>
+
+<pre><code>['Tony', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>You may also remove an element from a list using the <code>del</code> function and specifying a position in the list. For example, to remove the first element:</p>
+
+<p><code>python
+del(geeks[0])
+print geeks
+</code></p>
+
+<pre><code>['Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Python, like many languages, starts counting at zero. So the first element in a list has index <code>0</code>, the second index <code>1</code>, and so one. <code>-1</code> represents the last element in a list; <code>-2</code> the second-to-last, etc.</p>
+
+<p><code>python
+print geeks[0], geeks[1], geeks[-1], geeks[-2]
+del(geeks[1])
+print geeks
+</code></p>
+
+<pre><code>Chad Cody Josh Rader
+['Chad', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>We have gotten rid of a bunch of our geeks. Fortunately, we made a copy of our list of geeks earlier, so let&rsquo;s make a copy of that copy, assign all the geeks' names to <code>geeks</code> once again:</p>
+
+<p><code>python
+geeks = list(all_geeks)
+</code></p>
+
+<p>We discussed a few ways to put two lists together. One common way is using the <code>+</code> (plus) operator:</p>
+
+<p><code>python
+freaks = ['Frankenstein', 'Waffleman', 'Swampthing']
+freaks_and_geeks = geeks + freaks
+print 'geeks: %s' % geeks
+print 'freaks: %s' % freaks
+print 'freaks and geeks: %s' % freaks_and_geeks
+</code></p>
+
+<pre><code>geeks: ['Chad', 'Nic', 'Rader', 'Josh']
+freaks: ['Frankenstein', 'Waffleman', 'Swampthing']
+freaks and geeks: ['Chad', 'Nic', 'Rader', 'Josh', 'Frankenstein', 'Waffleman', 'Swampthing']
+</code></pre>
+
+<p>Using <code>+</code> is useful when we want to assign the combined list to a new variable. But we can also <code>extend</code> a list, adding another list to it and changing the original list:</p>
+
+<p><code>python
+nerds = ['Urkel', 'Alfred E. Neuman']
+geeks.extend(nerds)
+print geeks
+</code></p>
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh', 'Urkel', 'Alfred E. Neuman']
+</code></pre>
+
+<p>Wait, what are those last two guys doing in there? They don&rsquo;t belong. Let&rsquo;s get rid of them. You can delete multiple elements at a time:</p>
+
+<p><code>python
+del(geeks[-2:])
+print geeks
+</code></p>
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Recall that <code>[-2]</code> refers to the second-to-last element in a list. So <code>del(geeks[-2:])</code> means, delete elements in <code>geeks</code>, starting from the second-to-last element and going to the end of the list. If we omitted the colon (i.e., <code>del(geeks[-2])</code>), that would mean delete the second-to-last element and stop there; don&rsquo;t delete to the end of the list. Urkel would have been yanked, but Alfred E. Neuman would have remanded.</p>
+
+<h3>List Comprehensions</h3>
+
+<p>List comprehensions are a powerful construct in Python that let you concisely create a new list from an existing list.</p>
+
+<p>To create a list, <code>upper_geeks</code>, with the values of <code>geeks</code> converted to upper case, you could loop over them like this:</p>
+
+<p>```python</p>
+
+<h1>There&rsquo;s a better way!</h1>
+
+<p>upper_geeks = []  # create an empty list
+for geek in geeks:</p>
+
+<pre><code>upper_geeks.append(geek.upper())
+</code></pre>
+
+<p>```</p>
+
+<p>The list comprehension version is shorter and more &ldquo;Pythonic&rdquo;:
+<code>python
+upper_geeks = [geek.upper() for geek in geeks]
+</code></p>
+
+<p>Here&rsquo;s a list comprehension for the squares of the numbers zero through nine:
+<code>python
+squares = [x ** 2 for x in range(10)]
+print squares
+</code></p>
+
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre>
+
+<h2>Dictionaries</h2>
+
+<p>Dictionaries in Python are a data collection to maps one object (the key) to another object (the value). (In other languages, these are called associative arrays, hashes, maps, etc.) You could use this to map the states' two letter abbreviates to their names, or geeks to their ages:</p>
+
+<p><code>python
+geek_ages = {'Jim': 37, 'Chad' : 37, 'Cody': 26, 'Rader': 28, 'Nic': 21, 'Josh': 25, 'Tony': 26}
+</code></p>
+
+<p>Curly brackets (<code>{}</code>) are used to declare dictionaries. A key comes before a colon (<code>:</code>), and the value after the colon. A comman (<code>,</code>) is used to separate key:value pairs.</p>
+
+<p>In the example above, the keys are strings, so we put them in quotes, and the values are numbers (integers, specifically), so we did not use quotes for the values.</p>
+
+<p>To retrieve a value for a key, use square brackets (<code>[]</code>), like you do to access an element from a list. Instead of the index (0, 1, 2, etc.), put the key in the brackets:</p>
+
+<p><code>python
+codys_age = geek_ages['Cody']  # gets value 26
+</code></p>
+
+<p>You can change the value of an item in a dictionary (for example, if someone has a birthday):</p>
+
+<p><code>python
+geek_ages['Rader'] = 29
+</code></p>
+
+<p>A short-hand way to add one to an existing value is the <code>+=</code> operator:</p>
+
+<p><code>
+geek_ages['Nic'] += 1  # Nic's age goes from 21 to 22
+</code></p>
+
+<p>A element can be added to a dictionary by assigning a value to a key that doesn&rsquo;t yet exist:</p>
+
+<p><code>python
+geek_ages['Ethan'] = 9
+</code></p>
+
+<p>Ethan isn&rsquo;t yet old enough to have a beer. We better get him out of here:</p>
+
+<p><code>python
+del(geek_ages['Ethan'])
+</code></p>
+
+<p>Looping over the keys in a dictionary is easy:</p>
+
+<p>```python
+for name in geek_ages:</p>
+
+<pre><code>print name
+</code></pre>
+
+<p>```</p>
+
+<p>If you want to loop over the values instead:</p>
+
+<p>```python
+for age in geek_ages.values():</p>
+
+<pre><code>print age
+</code></pre>
+
+<p>```</p>
+
+<p>What if you want to the key and values? You could do the following, but there&rsquo;s a better way:</p>
+
+<p>```python</p>
+
+<h1>Not the easiest way to do this</h1>
+
+<p>for name in geek_ages:</p>
+
+<pre><code>age = geek_ages[name]
+print '{0} is {1} years old'.format(name, age)
+</code></pre>
+
+<p>```</p>
+
+<p>The better, simpler, and more &ldquo;Pythonic&rdquo; way uses the <code>items()</code> method of the <code>Dictionary</code> class:</p>
+
+<p>```python
+for name, age in geek_ages.items():</p>
+
+<pre><code>print '{0} is {1} years old'.format(name, age)
+</code></pre>
+
+<p>```</p>
+
+<p>You can use list comprehensions with a dictionary. What&rsquo;s will be the result, a list or a dictionary? Let&rsquo;s try:</p>
+
+<p>```python
+geek_names_and_ages = [&lsquo;{} is {} years old&rsquo;.format(name,age)</p>
+
+<pre><code>                    for name, age in geek_ages.items()]
+</code></pre>
+
+<p>print geek_names_and_ages
+```</p>
+
+<pre><code>['Rader is 28 years old', 'Chad is 37 years old', 'Nic is 21 years old', 'Jim is 37 years old', 'Josh is 25 years old', 'Tony is 26 years old', 'Cody is 26 years old']
+</code></pre>
+
+<p>It&rsquo;s a list; note the square brackets instead of curly brackets. This makes sense: A list comprehension always makes a list.</p>
+
+<p>Is there such a thing a dictionary comprehesion? Starting with Python 2.7, there is:</p>
+
+<p><code>python
+geek_ages_next_decade = {name: 10 + age for name, age in geek_ages.items()}
+print geek_ages_next_decade
+</code></p>
+
+<pre><code>{'Rader': 38, 'Chad': 47, 'Nic': 31, 'Jim': 47, 'Josh': 35, 'Tony': 36, 'Cody': 36}
+</code></pre>
+
+<p>We&rsquo;re getting old, my friends!</p>
+
+<h2>String Formatting</h2>
+
+<p>If you&rsquo;ve been paying close attention, you&rsquo;ve already seen two ways to format strings in examples above: Using the percent (<code>%</code>) character, and using the <code>String.format()</code> method. While the latter is the prefered way, the former has been around in Python for longer, so you&rsquo;ll still see it used frequently. Thus, it&rsquo;s useful understanding so you can read others' code.</p>
+
+<p>The example below shows both the <code>%</code> and <code>format()</code> ways of formatting strings:</p>
+
+<p><code>python
+name = 'Jim'
+age = 37
+print '%s is %d years old.' % (name, age)
+print '{} has been alive for {} years.'.format(name, age)
+print 'About {1} years ago, {0} was born.'.format(name, age)
+</code></p>
+
+<pre><code>Jim is 37 years old
+Jim has been alive for 37 years
+About 37 years ago, Jim was born
+</code></pre>
+
+<p>Notice in the first two <code>print</code> statements, the arguments are given in the same order as they appear in the string: first <code>name</code> and then <code>age</code>. On line 5, however, the order of the arguments is different than the order they appear in the printed string. This is because the placeholders (<code>{1}</code> and <code>{0</code>}) refer to, respectively, the second and first arguments to <code>format()</code> (arguments, like elements in a list, are numbered starting at zero).</p>
+
+<p>The <code>format()</code> method allows the same argument to appear multiple places in a string. See the example below:</p>
+
+<p><code>python
+name = 'Jim'
+beverage = 'beer'
+print "{0}'s favorite beverage is {1}. Here's your {1}, {0}!".format(name, beverage)
+</code></p>
+
+<pre><code>Jim's favorite beverage is beer. Here's your beer, Jim!
+</code></pre>
+
+<p>To do the same thing with <code>%s</code>, you&rsquo;d have to list the arguments twice each:</p>
+
+<p><code>python
+print "%s's favorite beverage is %s. Here's your %s, %s!" % (name, beverage, beverage, name)
+</code></p>
+
+<pre><code>Jim's favorite beverage is beer. Here's your beer, Jim!
+</code></pre>
+
+<p>The <code>format()</code> method allows you to do other things that you can&rsquo;t do as easily, or at all,  with <code>%</code>. For example, if you want to display a list of items on a check and their prices, with two decimal places each, neatly aligned, here&rsquo;s how to do so with <code>format()</code>:</p>
+
+<p>```python
+check = {&lsquo;water&rsquo;: 0, &lsquo;beer&rsquo;: 4.95, &lsquo;hamburger&rsquo;: 6.50, &lsquo;steak&rsquo;: 18.95, &lsquo;glen garioch whiskey&rsquo;: 2600 }
+for item, price in check.items():</p>
+
+<pre><code>print '{0:22} {1:8,.2f}'.format(item.title(), price)
+</code></pre>
+
+<p>print &lsquo;&ndash;&rsquo; * 31
+total = sum(check.values())
+print &lsquo;{0:22} {1:8,.2f}&rsquo;.format(&ldquo;Total&rdquo;, total)
+```</p>
+
+<pre><code>Water                      0.00
+Glen Garioch Whiskey   2,600.00
+Beer                       4.95
+Steak                     18.95
+Hamburger                  6.50
+-------------------------------
+Total                  2,630.40
+</code></pre>
+
+<p>The first placeholder, <code>{0:22}</code>, tells Python to print the item name in a field 22 characters wide. The second place holder, <code>{1:8,.2f}</code>, tells Python to print the price in a field 8 characters wide, to include commas to separate thousands, to include two decimal points, and to format the number as a floating-point (<code>f</code>).</p>
+
+<p>For more information on how to format strings using the <code>format()</code> method, see the <a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Python language documentation</a>.</p>
+
+<p>Also demonstrated in that example is the <code>sum()</code> function which, you guessed it, gives the sum of a list of numeric values.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -7,8 +7,9 @@
 	<meta name="author" content="Jim Cushing">
 
 	
-	<meta name="description" content=" Blog Archives
-">
+	<meta name="description" content="In this week&rsquo;s class, we covered: Lists, re-visited
+Dictionaries
+String formatting Lists To review, lists in Python are ordered collections of &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -75,6 +76,431 @@
 		
 	
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/08/19/week-three/">
+		
+			Week Three</a>
+	</h2>
+	<div class="entry-content">
+		<p>In this week&rsquo;s class, we covered:</p>
+
+<ul>
+<li>Lists, re-visited</li>
+<li>Dictionaries</li>
+<li>String formatting</li>
+</ul>
+
+
+<h2>Lists</h2>
+
+<p>To review, lists in Python are ordered collections of objects (such as strings or numbers). Declaring a list is easy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geeks</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Jim&#39;</span><span class="p">,</span> <span class="s">&#39;Chad&#39;</span><span class="p">,</span> <span class="s">&#39;Cody&#39;</span><span class="p">,</span> <span class="s">&#39;Nic&#39;</span><span class="p">,</span> <span class="s">&#39;Rader&#39;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To add an element to the end of a list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geeks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;Josh&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>To insert an element at the beginning of a list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geeks</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;Tony&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Copy a list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">all_geeks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">geeks</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">all_geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>To remove an element from a list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geeks</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">&#39;Jim&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Tony', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>You may also remove an element from a list using the <code>del</code> function and specifying a position in the list. For example, to remove the first element:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">del</span><span class="p">(</span><span class="n">geeks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Python, like many languages, starts counting at zero. So the first element in a list has index <code>0</code>, the second index <code>1</code>, and so one. <code>-1</code> represents the last element in a list; <code>-2</code> the second-to-last, etc.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">print</span> <span class="n">geeks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">geeks</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">geeks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">geeks</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</span><span class='line'><span class="k">del</span><span class="p">(</span><span class="n">geeks</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>Chad Cody Josh Rader
+['Chad', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>We have gotten rid of a bunch of our geeks. Fortunately, we made a copy of our list of geeks earlier, so let&rsquo;s make a copy of that copy, assign all the geeks&#8217; names to <code>geeks</code> once again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geeks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_geeks</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We discussed a few ways to put two lists together. One common way is using the <code>+</code> (plus) operator:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">freaks</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Frankenstein&#39;</span><span class="p">,</span> <span class="s">&#39;Waffleman&#39;</span><span class="p">,</span> <span class="s">&#39;Swampthing&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">freaks_and_geeks</span> <span class="o">=</span> <span class="n">geeks</span> <span class="o">+</span> <span class="n">freaks</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;geeks: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">geeks</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;freaks: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">freaks</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;freaks and geeks: </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">freaks_and_geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>geeks: ['Chad', 'Nic', 'Rader', 'Josh']
+freaks: ['Frankenstein', 'Waffleman', 'Swampthing']
+freaks and geeks: ['Chad', 'Nic', 'Rader', 'Josh', 'Frankenstein', 'Waffleman', 'Swampthing']
+</code></pre>
+
+<p>Using <code>+</code> is useful when we want to assign the combined list to a new variable. But we can also <code>extend</code> a list, adding another list to it and changing the original list:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">nerds</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Urkel&#39;</span><span class="p">,</span> <span class="s">&#39;Alfred E. Neuman&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">geeks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nerds</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh', 'Urkel', 'Alfred E. Neuman']
+</code></pre>
+
+<p>Wait, what are those last two guys doing in there? They don&rsquo;t belong. Let&rsquo;s get rid of them. You can delete multiple elements at a time:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">del</span><span class="p">(</span><span class="n">geeks</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geeks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Tony', 'Jim', 'Chad', 'Cody', 'Nic', 'Rader', 'Josh']
+</code></pre>
+
+<p>Recall that <code>[-2]</code> refers to the second-to-last element in a list. So <code>del(geeks[-2:])</code> means, delete elements in <code>geeks</code>, starting from the second-to-last element and going to the end of the list. If we omitted the colon (i.e., <code>del(geeks[-2])</code>), that would mean delete the second-to-last element and stop there; don&rsquo;t delete to the end of the list. Urkel would have been yanked, but Alfred E. Neuman would have remanded.</p>
+
+<h3>List Comprehensions</h3>
+
+<p>List comprehensions are a powerful construct in Python that let you concisely create a new list from an existing list.</p>
+
+<p>To create a list, <code>upper_geeks</code>, with the values of <code>geeks</code> converted to upper case, you could loop over them like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># There&#39;s a better way!</span>
+</span><span class='line'><span class="n">upper_geeks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c"># create an empty list</span>
+</span><span class='line'><span class="k">for</span> <span class="n">geek</span> <span class="ow">in</span> <span class="n">geeks</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">upper_geeks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">geek</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The list comprehension version is shorter and more &ldquo;Pythonic&rdquo;:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">upper_geeks</span> <span class="o">=</span> <span class="p">[</span><span class="n">geek</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">geek</span> <span class="ow">in</span> <span class="n">geeks</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s a list comprehension for the squares of the numbers zero through nine:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</span><span class='line'><span class="k">print</span> <span class="n">squares</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre>
+
+<h2>Dictionaries</h2>
+
+<p>Dictionaries in Python are a data collection to maps one object (the key) to another object (the value). (In other languages, these are called associative arrays, hashes, maps, etc.) You could use this to map the states&#8217; two letter abbreviates to their names, or geeks to their ages:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_ages</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Jim&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="s">&#39;Chad&#39;</span> <span class="p">:</span> <span class="mi">37</span><span class="p">,</span> <span class="s">&#39;Cody&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span> <span class="s">&#39;Rader&#39;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s">&#39;Nic&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s">&#39;Josh&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s">&#39;Tony&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Curly brackets (<code>{}</code>) are used to declare dictionaries. A key comes before a colon (<code>:</code>), and the value after the colon. A comman (<code>,</code>) is used to separate key:value pairs.</p>
+
+<p>In the example above, the keys are strings, so we put them in quotes, and the values are numbers (integers, specifically), so we did not use quotes for the values.</p>
+
+<p>To retrieve a value for a key, use square brackets (<code>[]</code>), like you do to access an element from a list. Instead of the index (0, 1, 2, etc.), put the key in the brackets:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">codys_age</span> <span class="o">=</span> <span class="n">geek_ages</span><span class="p">[</span><span class="s">&#39;Cody&#39;</span><span class="p">]</span>  <span class="c"># gets value 26</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can change the value of an item in a dictionary (for example, if someone has a birthday):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_ages</span><span class="p">[</span><span class="s">&#39;Rader&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">29</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A short-hand way to add one to an existing value is the <code>+=</code> operator:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_ages</span><span class="p">[</span><span class="s">&#39;Nic&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># Nic&#39;s age goes from 21 to 22</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A element can be added to a dictionary by assigning a value to a key that doesn&rsquo;t yet exist:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_ages</span><span class="p">[</span><span class="s">&#39;Ethan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ethan isn&rsquo;t yet old enough to have a beer. We better get him out of here:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">del</span><span class="p">(</span><span class="n">geek_ages</span><span class="p">[</span><span class="s">&#39;Ethan&#39;</span><span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Looping over the keys in a dictionary is easy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="n">name</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to loop over the values instead:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+</span><span class='line'>  <span class="k">print</span> <span class="n">age</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What if you want to the key and values? You could do the following, but there&rsquo;s a better way:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Not the easiest way to do this</span>
+</span><span class='line'><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">age</span> <span class="o">=</span> <span class="n">geek_ages</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&#39;{0} is {1} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The better, simpler, and more &ldquo;Pythonic&rdquo; way uses the <code>items()</code> method of the <code>Dictionary</code> class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&#39;{0} is {1} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can use list comprehensions with a dictionary. What&rsquo;s will be the result, a list or a dictionary? Let&rsquo;s try:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_names_and_ages</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;{} is {} years old&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+</span><span class='line'>                      <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geek_names_and_ages</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>['Rader is 28 years old', 'Chad is 37 years old', 'Nic is 21 years old', 'Jim is 37 years old', 'Josh is 25 years old', 'Tony is 26 years old', 'Cody is 26 years old']
+</code></pre>
+
+<p>It&rsquo;s a list; note the square brackets instead of curly brackets. This makes sense: A list comprehension always makes a list.</p>
+
+<p>Is there such a thing a dictionary comprehesion? Starting with Python 2.7, there is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">geek_ages_next_decade</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">age</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">geek_ages</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span><span class='line'><span class="k">print</span> <span class="n">geek_ages_next_decade</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>{'Rader': 38, 'Chad': 47, 'Nic': 31, 'Jim': 47, 'Josh': 35, 'Tony': 36, 'Cody': 36}
+</code></pre>
+
+<p>We&rsquo;re getting old, my friends!</p>
+
+<h2>String Formatting</h2>
+
+<p>If you&rsquo;ve been paying close attention, you&rsquo;ve already seen two ways to format strings in examples above: Using the percent (<code>%</code>) character, and using the <code>String.format()</code> method. While the latter is the prefered way, the former has been around in Python for longer, so you&rsquo;ll still see it used frequently. Thus, it&rsquo;s useful understanding so you can read others&#8217; code.</p>
+
+<p>The example below shows both the <code>%</code> and <code>format()</code> ways of formatting strings:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Jim&#39;</span>
+</span><span class='line'><span class="n">age</span> <span class="o">=</span> <span class="mi">37</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s"> is </span><span class="si">%d</span><span class="s"> years old.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;{} has been alive for {} years.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;About {1} years ago, {0} was born.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>Jim is 37 years old
+Jim has been alive for 37 years
+About 37 years ago, Jim was born
+</code></pre>
+
+<p>Notice in the first two <code>print</code> statements, the arguments are given in the same order as they appear in the string: first <code>name</code> and then <code>age</code>. On line 5, however, the order of the arguments is different than the order they appear in the printed string. This is because the placeholders (<code>{1}</code> and <code>{0</code>}) refer to, respectively, the second and first arguments to <code>format()</code> (arguments, like elements in a list, are numbered starting at zero).</p>
+
+<p>The <code>format()</code> method allows the same argument to appear multiple places in a string. See the example below:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Jim&#39;</span>
+</span><span class='line'><span class="n">beverage</span> <span class="o">=</span> <span class="s">&#39;beer&#39;</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&quot;{0}&#39;s favorite beverage is {1}. Here&#39;s your {1}, {0}!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">beverage</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>Jim's favorite beverage is beer. Here's your beer, Jim!
+</code></pre>
+
+<p>To do the same thing with <code>%s</code>, you&rsquo;d have to list the arguments twice each:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&#39;s favorite beverage is </span><span class="si">%s</span><span class="s">. Here&#39;s your </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">!&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">beverage</span><span class="p">,</span> <span class="n">beverage</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>Jim's favorite beverage is beer. Here's your beer, Jim!
+</code></pre>
+
+<p>The <code>format()</code> method allows you to do other things that you can&rsquo;t do as easily, or at all,  with <code>%</code>. For example, if you want to display a list of items on a check and their prices, with two decimal places each, neatly aligned, here&rsquo;s how to do so with <code>format()</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">check</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;water&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;beer&#39;</span><span class="p">:</span> <span class="mf">4.95</span><span class="p">,</span> <span class="s">&#39;hamburger&#39;</span><span class="p">:</span> <span class="mf">6.50</span><span class="p">,</span> <span class="s">&#39;steak&#39;</span><span class="p">:</span> <span class="mf">18.95</span><span class="p">,</span> <span class="s">&#39;glen garioch whiskey&#39;</span><span class="p">:</span> <span class="mi">2600</span> <span class="p">}</span>
+</span><span class='line'><span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">check</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&#39;{0:22} {1:8,.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">price</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">31</span>
+</span><span class='line'><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">check</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</span><span class='line'><span class="k">print</span> <span class="s">&#39;{0:22} {1:8,.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;Total&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<pre><code>Water                      0.00
+Glen Garioch Whiskey   2,600.00
+Beer                       4.95
+Steak                     18.95
+Hamburger                  6.50
+-------------------------------
+Total                  2,630.40
+</code></pre>
+
+<p>The first placeholder, <code>{0:22}</code>, tells Python to print the item name in a field 22 characters wide. The second place holder, <code>{1:8,.2f}</code>, tells Python to print the price in a field 8 characters wide, to include commas to separate thousands, to include two decimal points, and to format the number as a floating-point (<code>f</code>).</p>
+
+<p>For more information on how to format strings using the <code>format()</code> method, see the <a href="http://docs.python.org/2/library/string.html#format-specification-mini-language">Python language documentation</a>.</p>
+
+<p>Also demonstrated in that example is the <code>sum()</code> function which, you guessed it, gives the sum of a list of numeric values.</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-19T19:00:00-04:00" pubdate data-updated="true">Aug 19<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/dictionaries/'>dictionaries</a>, <a class='category' href='/blog/categories/formatting/'>formatting</a>, <a class='category' href='/blog/categories/lists/'>lists</a>, <a class='category' href='/blog/categories/strings/'>strings</a>
+
+
+</div>
+	
+</div>
+</article>
 
 <nav id="pagenavi">
     

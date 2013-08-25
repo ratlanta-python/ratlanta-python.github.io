@@ -1,12 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://python.supedupe.net/blog/2013/08/19/week-three/</loc>
+        <lastmod>2013-08-24T20:26:18-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://python.supedupe.net/blog/archives/</loc>
-        <lastmod>2013-08-12T10:31:09-04:00</lastmod>
+        <lastmod>2013-08-24T20:26:18-04:00</lastmod>
     </url>
     <url>
         <loc>http://python.supedupe.net/</loc>
-        <lastmod>2013-08-12T10:31:09-04:00</lastmod>
+        <lastmod>2013-08-24T20:26:18-04:00</lastmod>
     </url>
     <url>
         <loc>http://python.supedupe.net/robots.txt</loc>
