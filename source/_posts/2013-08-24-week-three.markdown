@@ -270,7 +270,8 @@ print "%s's favorite beverage is %s. Here's your %s, %s!" % (name, beverage, bev
 The `format()` method allows you to do other things that you can't do as easily, or at all,  with `%`. For example, if you want to display a list of items on a check and their prices, with two decimal places each, neatly aligned, here's how to do so with `format()`:
 
 ```python
-check = {'water': 0, 'beer': 4.95, 'hamburger': 6.50, 'steak': 18.95, 'glen garioch whiskey': 2600 }
+check = {'water': 0, 'beer': 4.95, 'hamburger': 6.50, 
+		'steak': 18.95, 'glen garioch whiskey': 2600 }
 for item, price in check.items():
 	print '{0:22} {1:8,.2f}'.format(item.title(), price)
 
