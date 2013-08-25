@@ -4,7 +4,7 @@
   <title><![CDATA[Category: formatting | Atlanta Python Geeks of Reddit]]></title>
   <link href="http://python.supedupe.net/blog/categories/formatting/atom.xml" rel="self"/>
   <link href="http://python.supedupe.net/"/>
-  <updated>2013-08-24T20:29:57-04:00</updated>
+  <updated>2013-08-24T20:31:03-04:00</updated>
   <id>http://python.supedupe.net/</id>
   <author>
     <name><![CDATA[Jim Cushing]]></name>
@@ -331,8 +331,12 @@ print "%s's favorite beverage is %s. Here's your %s, %s!" % (name, beverage, bev
 <p>The <code>format()</code> method allows you to do other things that you can&rsquo;t do as easily, or at all,  with <code>%</code>. For example, if you want to display a list of items on a check and their prices, with two decimal places each, neatly aligned, here&rsquo;s how to do so with <code>format()</code>:</p>
 
 <p>```python
-check = {&lsquo;water&rsquo;: 0, &lsquo;beer&rsquo;: 4.95, &lsquo;hamburger&rsquo;: 6.50, &lsquo;steak&rsquo;: 18.95, &lsquo;glen garioch whiskey&rsquo;: 2600 }
-for item, price in check.items():</p>
+check = {&lsquo;water&rsquo;: 0, &lsquo;beer&rsquo;: 4.95, &lsquo;hamburger&rsquo;: 6.50,</p>
+
+<pre><code>    'steak': 18.95, 'glen garioch whiskey': 2600 }
+</code></pre>
+
+<p>for item, price in check.items():</p>
 
 <pre><code>print '{0:22} {1:8,.2f}'.format(item.title(), price)
 </code></pre>

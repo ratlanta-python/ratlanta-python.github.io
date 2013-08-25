@@ -4,7 +4,7 @@
   <title><![CDATA[Atlanta Python Geeks of Reddit]]></title>
   <link href="http://python.supedupe.net/atom.xml" rel="self"/>
   <link href="http://python.supedupe.net/"/>
-  <updated>2013-08-24T20:29:57-04:00</updated>
+  <updated>2013-08-24T20:31:03-04:00</updated>
   <id>http://python.supedupe.net/</id>
   <author>
     <name><![CDATA[Jim Cushing]]></name>
@@ -379,7 +379,9 @@ About 37 years ago, Jim was born
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">check</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;water&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;beer&#39;</span><span class="p">:</span> <span class="mf">4.95</span><span class="p">,</span> <span class="s">&#39;hamburger&#39;</span><span class="p">:</span> <span class="mf">6.50</span><span class="p">,</span> <span class="s">&#39;steak&#39;</span><span class="p">:</span> <span class="mf">18.95</span><span class="p">,</span> <span class="s">&#39;glen garioch whiskey&#39;</span><span class="p">:</span> <span class="mi">2600</span> <span class="p">}</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">check</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;water&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;beer&#39;</span><span class="p">:</span> <span class="mf">4.95</span><span class="p">,</span> <span class="s">&#39;hamburger&#39;</span><span class="p">:</span> <span class="mf">6.50</span><span class="p">,</span>
+</span><span class='line'>      <span class="s">&#39;steak&#39;</span><span class="p">:</span> <span class="mf">18.95</span><span class="p">,</span> <span class="s">&#39;glen garioch whiskey&#39;</span><span class="p">:</span> <span class="mi">2600</span> <span class="p">}</span>
 </span><span class='line'><span class="k">for</span> <span class="n">item</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="n">check</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 </span><span class='line'>  <span class="k">print</span> <span class="s">&#39;{0:22} {1:8,.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">price</span><span class="p">)</span>
 </span><span class='line'>
